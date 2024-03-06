@@ -50,7 +50,8 @@ ANDROID_HOME=/Users/awc-110812/Library/Android/sdk/tools
           steps {
             // sh 'npx cap build android'
              echo "Android"
-echo ${env.ANDROID_HOME}
+
+  echo "My 'PATH'   environment variable: '${env.ANDROID_HOME}'"
 
              sh 'cd android && bash ./gradlew assembleDebug && cd ..'
           }
