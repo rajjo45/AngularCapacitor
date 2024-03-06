@@ -49,6 +49,7 @@ pipeline {
           steps {
             // sh 'npx cap build android'
              echo "Android"
+export ANDROID_HOME=/Users/awc-110812/Library/Android/sdk
              sh 'cd android && bash ./gradlew assembleDebug && cd ..'
           }
        	}
