@@ -9,7 +9,6 @@ pipeline {
 
     environment {
 ANDROID_HOME='/Users/awc-110812/Library/Android/sdk'
-JAVA_HOME='/Users/awc-110812/Documents/jdk-17.0.10.jdk/Contents/Home/bin'
 ANDROID_SDK_ROOT='$ANDROID_HOME'
 
 
