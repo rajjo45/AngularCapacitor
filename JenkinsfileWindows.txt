@@ -1,0 +1,68 @@
+pipeline {
+
+    agent any
+
+    tools {
+           nodejs "20.11.1"
+	   gradle "8.0.2"
+     }
+
+    environment 
+{
+
+
+         PATH='C://Program Files//nodejs;c:\\Windows\\System32' 
+	//PATH='/Users/awc-110812/bin:/usr/bin:/bin:/Users/awc-110812/Documents/jdk-17.0.10.jdk/Contents/Home/bin:/Users/awc-110812/Library/Android/sdk/tools:/Users/awc-110812/Library/Andr//oid/sdk/platform-tools/bin;/Users/awc-110812/Library/Android/sdk/platform-tools:/Users/awc-110812/Library/Android/sdk/platform-tools/tools:/Users/awc-110812/Library/Android/sdk/platform-tools/tools/bin:/Users/awc-110812/Library/Android/sdk'
+
+
+
+     }
+
+    stages {
+
+ 	stage('NPM Install') {
+         steps {
+            echo 'execute cmd ...'
+            bat 'npm install'
+          }
+      	}
+
+ 	stage('Stage Web Build') {
+          steps {
+	      echo 'Running Web Build'
+              bat 'npm run build'
+          }
+      	}
+
+	stage('Sync') {
+  	   steps {
+		echo 'Syncing files to each platforms'
+ 		bat 'npx cap sync'
+	  }
+      	}
+
+
+ 	stage('IOS Build') {
+          steps {
+             // sh 'npx ionic build ios --release'
+             echo "iOS"
+             // bat "npx ionic build --debug"
+
+          }
+       	}
+
+	stage('Android Build') {
+          steps {
+             //sh 'npx cap build android'
+
+             echo "Android"
+
+ // echo "My 'PATH'   environment variable: '${env.ANDROID_HOME}'"
+
+             bat 'cd android && bash gradle clean assembleDebug && cd..'
+          }
+       	}
+}
+}
+
+
