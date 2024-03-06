@@ -53,7 +53,8 @@ pipeline {
 
 	stage('Android Build') {
           steps {
-             sh 'npx cap build android'
+             //sh 'npx cap build android'
+sh npx ionic cap build android && cd android && gradle cleanBuildCache && gradle assembleDebug && cd
              echo "Android"
 
   echo "My 'PATH'   environment variable: '${env.ANDROID_HOME}'"
