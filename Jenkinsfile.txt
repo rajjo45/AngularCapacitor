@@ -49,7 +49,7 @@ pipeline {
           steps {
             // sh 'npx cap build android'
              echo "Android"
-             sh 'cd android && ./gradlew assembleDebug && cd ..'
+             sh 'cd android && bash ./gradlew assembleDebug && cd ..'
           }
        	}
 }
