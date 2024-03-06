@@ -59,7 +59,7 @@ pipeline {
 
   echo "My 'PATH'   environment variable: '${env.ANDROID_HOME}'"
 
-         //    sh 'cd android && bash ./gradlew clean assembleDebug && cd'
+             sh 'cd android && bash ./gradlew clean assembleDebug && cd'
           }
        	}
 }
