@@ -1,0 +1,58 @@
+pipeline {
+
+    agent any
+
+    tools {
+           nodejs "20.11.1"
+	   gradle "8.0.2"
+     }
+
+    environment {
+        // PATH='C://Program Files//nodejs;c:\\Windows\\System32' 
+	PATH='/Users/awc-110812/bin:/usr/bin:/bin'
+     }
+
+    stages {
+
+ 	stage('NPM Install') {
+         steps {
+            echo 'execute cmd ...'
+            sh 'npm install'
+          }
+      	}
+
+ 	stage('Stage Web Build') {
+          steps {
+	      echo 'Running Web Build'
+              sh 'npm run build'
+          }
+      	}
+
+	stage('Sync') {
+  	   steps {
+		echo 'Syncing files to each platforms'
+ 		sh 'npx cap sync'
+	  }
+      	}
+
+
+ 	stage('IOS Build') {
+          steps {
+             // sh 'npx ionic build ios --release'
+             echo "iOS"
+             // bat "npx ionic build --debug"
+
+          }
+       	}
+
+	stage('Android Build') {
+          steps {
+            // sh 'npx cap build android'
+             echo "Android"
+             sh 'cd android && ./gradlew assembleDebug && cd ..'
+          }
+       	}
+}
+}
+
+
