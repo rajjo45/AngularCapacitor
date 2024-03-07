@@ -13,7 +13,7 @@ pipeline {
 
         // PATH='C://Program Files//nodejs;c:\\Windows\\System32'
 
-	PATH='/Users/awc-110812/bin:/usr/bin:/bin:/Users/awc-110812/Documents/jdk-17.0.10.jdk/Contents/Home/bin:/Users/awc-110812/Documents/ANDROID_SDK/sdk'
+	PATH='/Users/awc-110812/bin:/usr/bin:/bin:/Users/awc-110812/Documents/jdk-17.0.10.jdk/Contents/Home/bin:/Users/awc-110812/Documents/ANDROID_SDK/sdk/tools/bin'
 
 
 
