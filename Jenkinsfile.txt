@@ -4,47 +4,40 @@ pipeline {
 
     tools {
            nodejs "20.11.1"
-	   gradle "8.0.2"
-     }
+	         gradle "8.0.2"
+          }
 
     environment 
-{
-
-
+    {
         // PATH='C://Program Files//nodejs;c:\\Windows\\System32'
-
-	PATH='/Users/awc-110812/bin:/usr/bin:/bin:/Users/awc-110812/Documents/jdk-17.0.10.jdk/Contents/Home/bin:/Users/awc-110812/Documents/ANDROID_SDK/sdk/tools/bin'
-GRADLE_HOME='/Users/awc-110812/Documents/ANDROID_SDK'
-
-
-
+	      PATH='/Users/awc-110812/bin:/usr/bin:/bin:/Users/awc-110812/Documents/jdk-17.0.10.jdk/Contents/Home/bin:/Users/awc-110812/Documents/ANDROID_SDK/sdk/tools/bin'
+        //GRADLE_HOME='/Users/awc-110812/Documents/ANDROID_SDK'
      }
 
     stages {
 
- 	stage('NPM Install') {
+ 	  stage('NPM Install') {
          steps {
             echo 'execute cmd ...'
             sh 'npm install'
           }
       	}
 
- 	stage('Stage Web Build') {
+ 	  stage('Stage Web Build') {
           steps {
 	      echo 'Running Web Build'
               sh 'npm run build'
           }
       	}
 
-	stage('Sync') {
+	  stage('Sync') {
   	   steps {
 		echo 'Syncing files to each platforms'
  		sh 'npx cap sync'
 	  }
       	}
 
-
- 	stage('IOS Build') {
+ 	  stage('IOS Build') {
           steps {
              // sh 'npx ionic build ios --release'
              echo "iOS"
@@ -53,18 +46,15 @@ GRADLE_HOME='/Users/awc-110812/Documents/ANDROID_SDK'
           }
        	}
 
-	stage('Android Build') {
+	  stage('Android Build') {
           steps {
              //sh 'npx cap build android'
-
              echo "Android"
-
- // echo "My 'PATH'   environment variable: '${env.ANDROID_HOME}'"
-
+             //echo "My 'PATH'   environment variable: '${env.ANDROID_HOME}'"
              sh 'cd android && bash ./gradlew clean assembleDebug && cd'
           }
        	}
-}
-}
+    }
+  }
 
 
