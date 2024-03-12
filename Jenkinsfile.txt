@@ -14,7 +14,7 @@ pipeline {
         PATH='/usr/bin:/bin:/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home/bin:/Users/mitty/Library/Android/sdk/tools/bin'
         ANDROID_HOME='/Users/mitty/Library/Android/sdk'
         //'/var/jenkins/tools/android-sdk'
-        GRADLE_USER_HOME='/Users/mitty/.gradle'
+        //GRADLE_USER_HOME='/Users/mitty/.gradle'
         //  /Users/mitty/Library/Android/sdk
      }
 
