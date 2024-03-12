@@ -13,7 +13,7 @@ pipeline {
 	      PATH='/Users/awc-110812/bin:/usr/bin:/bin:/Users/awc-110812/Documents/jdk-17.0.10.jdk/Contents/Home/bin:/Users/awc-110812/Documents/ANDROID_SDK/sdk/tools/bin'
         ANDROID_HOME='/Users/mitty/Library/Android/sdk'
         //'/var/jenkins/tools/android-sdk'
-        GRADLE_HOME='/Users/mitty/.gradle'
+        GRADLE_USER_HOME='/Users/mitty/.gradle'
         //  /Users/mitty/Library/Android/sdk
      }
 
