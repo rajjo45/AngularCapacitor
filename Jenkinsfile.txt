@@ -11,7 +11,8 @@ pipeline {
     {
         // PATH='C://Program Files//nodejs;c:\\Windows\\System32'
 	      // PATH='/Users/awc-110812/bin:/usr/bin:/bin:/Users/awc-110812/Documents/jdk-17.0.10.jdk/Contents/Home/bin:/Users/awc-110812/Documents/ANDROID_SDK/sdk/tools/bin'
-        PATH='/usr/bin:/bin:/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home/bin:/Users/mitty/Library/Android/sdk/tools/bin'
+        ANDROID_HOME='/Users/mitty/Library/Android/sdk'
+        PATH='/usr/bin:/bin:/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home/bin:/Users/mitty/Library/Android/sdk/tools/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools'
         // ANDROID_HOME='/Users/Android/sdk'
         //'/var/jenkins/tools/android-sdk'
         //GRADLE_USER_HOME='/Users/mitty/.gradle'
@@ -56,7 +57,7 @@ pipeline {
              echo "Android"
              //echo "My 'PATH'   environment variable: '${env.ANDROID_HOME}'"
              
-             sh 'cd android && export ANDROID_HOME=/Users/mitty/Library/Android/sdk && chmod +x gradlew && ./gradlew clean assembleDebug && cd ..'
+             sh 'cd android && chmod +x gradlew && ./gradlew clean assembleDebug && cd ..'
           }
        	}
     }
