@@ -54,6 +54,7 @@ pipeline {
           steps {
              //sh 'npx cap build android'
              echo "Android"
+             sh "chmod +x gradlew"
              //echo "My 'PATH'   environment variable: '${env.ANDROID_HOME}'"
              sh 'cd android && ./gradlew clean assembleDebug && cd ..'
           }
