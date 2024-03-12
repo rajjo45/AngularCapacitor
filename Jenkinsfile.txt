@@ -56,7 +56,7 @@ pipeline {
              echo "Android"
              //echo "My 'PATH'   environment variable: '${env.ANDROID_HOME}'"
              
-             sh 'cd android && export ANDROID_HOME=/Users/mitty/Library/Android && chmod +x gradlew && ./gradlew clean assembleDebug && cd ..'
+             sh 'cd android && export ANDROID_HOME=/Users/mitty/Library/Android/sdk && chmod +x gradlew && ./gradlew clean assembleDebug && cd ..'
           }
        	}
     }
